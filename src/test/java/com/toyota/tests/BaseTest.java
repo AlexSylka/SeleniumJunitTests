@@ -31,6 +31,7 @@ public class BaseTest {
 
     @After
     public void tearDown() {
+        driver.quit();
     }
 
     private void initSiteUrl() {
@@ -46,6 +47,7 @@ public class BaseTest {
                 driver = new ChromeDriver();
                 break;
             case "firefox":
+                System.setProperty("webdriver.gecko.driver", prop.getProperty("macFirefoxDriver"));
                 driver = new FirefoxDriver();
                 break;
             default:
